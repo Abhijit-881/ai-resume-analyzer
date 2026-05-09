@@ -23,46 +23,18 @@ body {
   flex-direction: column;
 }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: rgba(30, 41, 59, 0.8);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  background: linear-gradient(to right, #818cf8, #c084fc);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.nav-links a {
-  color: var(--text-main);
-  text-decoration: none;
-  margin-left: 1.5rem;
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-.nav-links a:hover {
-  color: #818cf8;
-}
-
 .main-content {
   flex: 1;
   display: flex;
+  flex-direction: column;
+}
+
+.page-wrapper {
+  display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 2rem;
+  padding: 4rem 2rem 2rem; /* Added top padding to clear the fixed navbar */
+  flex: 1;
 }
 
 .auth-container {

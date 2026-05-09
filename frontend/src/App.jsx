@@ -1,8 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
+import Home from './pages/Home';
+import Navbar from './components/Navbar';
 import PrivateRoute from './components/PrivateRoute';
 import './index.css'; 
 
@@ -10,30 +12,20 @@ const App = () => {
   return (
     <Router>
       <div className="app-container">
-        <nav className="navbar">
-          <div className="logo">JobFit Analyzer</div>
-          <div className="nav-links">
-            <Link to="/dashboard">Dashboard</Link>
-            <Link to="/login">Login</Link>
-            <Link to="/register">Register</Link>
-          </div>
-        </nav>
+        <Navbar />
         
         <main className="main-content">
           <Routes>
+            <Route path="/" element={<Home />} />
             <Route path="/dashboard" element={
               <PrivateRoute>
-                <Dashboard />
+                <div className="page-wrapper">
+                  <Dashboard />
+                </div>
               </PrivateRoute>
             } />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/" element={
-              <div className="home-hero">
-                <h1>Welcome to JobFit Analyzer</h1>
-                <p>Find your perfect career fit using AI.</p>
-              </div>
-            } />
+            <Route path="/login" element={<div className="page-wrapper"><Login /></div>} />
+            <Route path="/register" element={<div className="page-wrapper"><Register /></div>} />
           </Routes>
         </main>
       </div>

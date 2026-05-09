@@ -2,14 +2,16 @@ import React from 'react';
 import { Navigate } from 'react-router-dom';
 
 const PrivateRoute = ({ children }) => {
+
+  // Get token from localStorage
   const token = localStorage.getItem('access_token');
-  
+
+  // If token not found → redirect to login
   if (!token) {
-    // Redirect them to the /login page, but save the current location they were
-    // trying to go to if we want to improve this later.
     return <Navigate to="/login" replace />;
   }
 
+  // If logged in → show dashboard
   return children;
 };
 
